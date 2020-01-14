@@ -1,1 +1,10 @@
+import pandas as pd
+df1 = pd.read_excel(r'F:/python/data1.xlsx',columns=['C'])
+df2 = pd.read_excel(r'F:/python/data2.xlsx',columns=['D'])
 
+df2['results'] = df1['C'] - df2['D']
+df2['final'] = ''
+print(df2)
+
+df2['final'] = df2['results'].apply(lambda x: 'pass' if x == 0 else 'fail')
+print(df2)
